@@ -1,0 +1,116 @@
+textarea {
+  width: 95%;
+  border: 0px;
+  border-bottom: 1px solid #EBEEF0;
+  font-size: 16px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+#flake-submit-btn {
+  float: right;
+  margin-right: 20px;
+  margin-top: -5px;
+  color: white;
+  background-color: #1DA1F2;
+  border: 1px solid #1DA1F2;
+  padding: 5px 14px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#flake-submit-btn:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #1991DA;
+  border-color: #1991DA
+}
+
+.flake-panel-bg {
+  position: fixed;
+  z-index: 99;
+  background-color: black;
+  opacity: 0.3;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.flake-panel {
+  width: 46%;
+  background-color: white;
+  height: auto;
+  padding: 0px;
+  z-index: 999 !important;
+  position: fixed;
+  margin-left: 27%;
+  margin-right: 27%;
+  border-radius: 15px;
+  margin-top: 8vh;
+  padding-bottom: 15px;
+}
+
+.flake-panel-header {
+  border-bottom: 1px solid #C4CFD6;
+  width: 100%;
+  padding: 0px;
+
+}
+
+.flake-panel-close-btn {
+  color: #1991DA;
+  background-color: white;
+  border: 1px solid white;
+  font-size: 25px;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+  margin-left: 15px;
+  border-radius: 50%;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.flake-panel-close-btn:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #E8F6FD;
+}
+
+.flake-panel-container {
+
+}
+
+.flake-panel-container-left-box {
+  width: 15%;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+.flake-panel-profile-photo {
+  height: 45px;
+  width: 45px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.flake-panel-container-right-box {
+  width: 80%;
+  vertical-align: top;
+  display: inline-block;
+  padding-top: 10px;
+}

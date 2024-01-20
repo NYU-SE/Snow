@@ -1,0 +1,1092 @@
+/*
+
+Palette:
+
+blue:           #1DA1F2
+blue hover:     #1991DA
+light hover:    #E8F6FD
+
+form border:    #E5E8E8
+
+*/
+
+* {
+  font-family: "Inter";
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+/* ----------------- left navigation ----------------- */
+
+#left-navigation {
+  border-right: 1px solid #EBEEF0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 14%;
+  z-index: 9;
+  background-color: white;
+  text-align: right;
+}
+
+#left-navigation p {
+  display: block;
+  text-align: right;
+  margin-right: 35px;
+  margin-top: 20px;
+  font-size: 28px;
+  margin-bottom: -0px;
+}
+
+#left-navigation p a {
+  text-decoration: none;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 6px;
+  color: black;
+  border-radius: 50%;
+}
+
+#left-navigation p a:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #E8F6FD;
+  color: #1DA1F2;
+}
+
+#left-navigation a img {
+  height: 40px;
+}
+
+#tweet-panel-open-btn {
+  padding: 0px;
+  display: block;
+  text-align: right;
+  margin-right: 33px;
+  margin-top: 20px;
+  font-size: 35px;
+  color: white;
+  background-color: #1DA1F2;
+  border: 1px solid #1DA1F2;
+  float: right;
+  border-radius: 50%;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 6px;
+}
+
+#tweet-panel-open-btn:focus {
+  outline: none;
+}
+
+#tweet-panel-open-btn:hover {
+  cursor: pointer;
+  background-color: #1991DA;
+  border-color: #1991DA;
+  transition: 0.2s;
+}
+
+#profile-photo-left-nav {
+  height: 45px;
+  width: 45px;
+  background-color: lightgrey;
+  position: fixed;
+  bottom: 0;
+  border-radius: 50%;
+  margin-left: 7.5%;
+  margin-bottom: 30px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#profile-photo-left-nav:hover {
+  cursor: pointer;
+}
+
+#hidden-logout-panel {
+  background-color: white;
+  height: auto;
+  width: 20%;
+  position: fixed;
+  bottom:0;
+  z-index: 99;
+  border-radius: 10px;
+  margin-bottom: 7%;
+  -webkit-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+  margin-left: 7.5%;
+  padding: 0px;
+}
+
+#hidden-logout-panel p {
+  margin: 0px;
+}
+
+#hidden-logout-panel p a {
+    color: black;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    padding: 20px 20px;
+}
+
+#hidden-logout-panel p a:hover {
+  transition: 0.2s;
+  background-color: #F7F9FA;
+  border-radius: 10px;
+}
+
+#hidden-tweet-panel-bg {
+  position: fixed;
+  z-index: 99;
+  background-color: black;
+  opacity: 0.3;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#hidden-tweet-panel {
+  width: 46%;
+  background-color: white;
+  height: auto;
+  padding: 0px;
+  z-index: 999 !important;
+  position: fixed;
+  margin-left: 27%;
+  margin-right: 27%;
+  border-radius: 15px;
+  margin-top: 8vh;
+  padding-bottom: 15px;
+}
+
+#hidden-tweet-panel-header {
+  border-bottom: 1px solid #C4CFD6;
+  width: 100%;
+  padding: 0px;
+
+}
+
+#hidden-tweet-panel-header button {
+  color: #1991DA;
+  background-color: white;
+  border: 1px solid white;
+  font-size: 25px;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+  margin-left: 15px;
+  border-radius: 50%;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hidden-tweet-panel-header button:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #E8F6FD;
+}
+
+#hidden-tweet-panel-form-container {
+
+}
+
+#hidden-tweet-panel-form-container-left-box {
+  width: 15%;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+#profile-photo-hidden-panel {
+  height: 45px;
+  width: 45px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+#hidden-tweet-panel-form-container-right-box {
+  width: 80%;
+  vertical-align: top;
+  display: inline-block;
+  padding-top: 10px;
+}
+
+#hidden-tweet-panel-form-container-right-box form {
+
+}
+
+#hidden-tweet-panel-form-container-right-box form textarea {
+  width: 100%;
+  font-size: 18px;
+  height: 100px;
+  border: 0px;
+}
+
+#horizontal-line {
+  border-bottom: 1px solid #EBEEF0;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#hidden_panel_tweet_submit_btn {
+  float: right;
+  color: white;
+  background-color: #1DA1F2;
+  border: 1px solid #1DA1F2;
+  padding: 7px 14px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#hidden_panel_tweet_submit_btn:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #1991DA;
+  border-color: #1991DA
+}
+
+#hidden-tweet-panel-form-container-right-box form textarea:focus {
+  outline: none;
+}
+
+#hidden-tweet-panel-form-container-right-box form label {
+  font-size: 24px;
+  color: #1DA1F2;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+#hidden-tweet-panel-form-container-right-box form label:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #E8F6FD;
+
+}
+
+#hidden_tweet_panel_img {
+  display: none;
+}
+
+/* ----------------- main content container ----------------- */
+#content-container {
+  margin-left: 14%;
+  margin-right: 38%;
+}
+
+#half-base-content-container {
+  margin-left: 14%;
+  margin-right: 6%;
+}
+
+/* ----------------- right navigation ----------------- */
+#right-navigation {
+  border-left: 1px solid #EBEEF0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 38%;
+  z-index: 9;
+  background-color: white;
+  overflow-y: scroll;
+}
+
+#right-nav-search-container {
+  width: 82%;
+  margin-left: 6%;
+  margin-top: 10px;
+}
+
+#right-nav-search-container form {
+
+}
+
+#right-nav-search-container input {
+  vertical-align: middle;
+  display: inline-block;
+
+}
+
+#search-submit-btn {
+  font-size: 15px;
+  border-radius: 25px 0px 0px 25px;
+  border: 2px solid #EBEEF0;
+  background-color: #EBEEF0;
+  padding: 7px 7px;
+}
+
+#search-text-input {
+  border: 2px solid #EBEEF0;
+  font-size: 15px;
+  padding: 7px 0px;
+  border-radius: 0px 25px 25px 0px;
+  background-color: #EBEEF0;
+  margin-left: -5px;
+  width: 80%;
+}
+
+#search-text-input:focus {
+  outline: none;
+}
+
+#trends-for-you {
+  width: 75%;
+  margin-left: 6%;
+  margin-top: 10px;
+  background-color: #F7F9FA;
+  border-radius: 10px;
+}
+
+#trends-for-you-header {
+  padding: 0px 0px;
+}
+
+#trends-for-you-header h3 {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin-left: 20px;
+  font-weight: 900;
+  font-size: 19px;
+}
+
+#trends-horizontal-line {
+  border-bottom: 1px solid #EBEEF0;
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+#trends-for-you a {
+  text-decoration: none;
+  color: black;
+}
+
+#trends-cell {
+  border-bottom: 1px solid #EBEEF0;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#trends-cell:nth-child(3) {
+  border-bottom: 0px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+#trends-cell:hover {
+  cursor: pointer;
+  transition: 0.1s;
+  background-color: #EFF1F2;
+}
+
+#trends-cell p {
+  margin: 0px;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+#trends-cell h4 {
+  margin: 0px;
+  margin-left: 20px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  font-size: 16px;
+
+}
+
+/* ------ who to follow ------*/
+#who-to-follow {
+  width: 75%;
+  margin-left: 6%;
+  margin-top: 10px;
+  background-color: #F7F9FA;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+#who-to-follow a {
+  text-decoration: none;
+  color: black;
+}
+
+#who-to-follow-header {
+    padding: 0px 0px;
+}
+
+#who-to-follow-header h3 {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin-left: 20px;
+  font-weight: 900;
+  font-size: 19px;
+}
+
+#who-to-follow-horizontal-line {
+  border-bottom: 1px solid #EBEEF0;
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+#who-to-follow-cell-left-part {
+  width: 17%;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+#who-to-follow-profile-photo {
+  height: 45px;
+  width: 45px;
+  background-color: lightgrey;
+  margin: 0 auto;
+  border-radius: 50%;
+  margin-left: 10px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#who-to-follow-cell {
+  padding: 10px 0px;
+  border-bottom: 1px solid #EBEEF0;
+}
+
+#who-to-follow-cell-center-part {
+  width: 48%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+#who-to-follow-cell-center-part h4 {
+  margin: 0px;
+}
+
+#who-to-follow-cell-center-part p {
+  margin: 0px;
+}
+
+#who-to-follow-cell-right-part {
+  width: 28%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+#who-to-follow-cell-right-part form {
+
+}
+
+#who-to-follow-cell-right-part form input {
+  background-color: transparent;
+  border: 1px solid #1DA1F2;
+  color: #1DA1F2;
+  padding: 5px 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  margin-top: 5px;
+}
+
+#who-to-follow-cell-right-part form input:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #E8F6FD;
+}
+
+/* ------ tpocs to follow ------*/
+
+#topics-to-follow {
+  width: 75%;
+  margin-left: 6%;
+  margin-top: 10px;
+  background-color: #F7F9FA;
+  border-radius: 10px;
+
+}
+
+#topics-to-follow-header {
+  padding: 0px 0px;
+  margin-bottom: -10px;
+}
+
+#topics-to-follow-header h3 {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  margin-left: 20px;
+  font-weight: 900;
+  font-size: 19px;
+}
+
+#topics-horizontal-line {
+  border-bottom: 1px solid #EBEEF0;
+  width: 100%;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+#topics-to-follow a {
+  text-decoration: none;
+  color: black;
+}
+
+#topics-to-follow-cell {
+  padding: 15px 0px;
+  border-bottom: 1px solid #EBEEF0;
+}
+
+#topics-to-follow-cell:hover {
+  cursor: pointer;
+  transition: 0.1s;
+  background-color: #EFF1F2;
+}
+
+#topics-to-follow-cell h4 {
+  margin: 0px;
+  margin-left: 20px;
+  font-weight: 800;
+}
+
+#topics-to-follow-cell p {
+  margin: 0px;
+  margin-left: 20px;
+  font-size: 14px;
+  color: grey;
+}
+
+
+/* ---------------------------- mobile  --------------------------------*/
+#temporary-top-mobile-nav {
+  border-bottom: 1px solid #C4CFD6;
+  display: none;
+  text-align: center;
+  position: fixed;
+  top:0;
+  left:0;
+  right: 0;
+  height: 50px;
+  z-index: 99;
+  background-color: white;
+}
+
+#temporary-top-mobile-nav-logo {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  vertical-align: top;
+}
+
+#temporary-top-mobile-nav-logo img {
+  height: 27px;
+}
+
+#profile-photo-mobile-left-nav-opener {
+  height: 30px;
+  width: 30px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5%;
+  margin-top: 11px;
+  margin-bottom: 11px;
+
+  position: absolute;
+  left: 0;
+
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#profile-photo-mobile-left-nav-opener:hover {
+  cursor: pointer;
+}
+
+#temporary-top-mobile-nav h1 {
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#hidden-mobile-left-nav-bg {
+  background-color: black;
+  opacity: 0.3;
+  position: fixed;
+  top:0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+  display: none;
+}
+
+#hidden-mobile-left-nav {
+  transition: 0.5s;
+  background-color: white;
+  position: fixed;
+  top:0;
+  left: 0;
+  bottom:0;
+  width: 85%;
+  z-index: 999;
+  display: none;
+}
+
+#hidden-mobile-left-nav-header {
+  border-bottom: 1px solid #C4CFD6;
+}
+
+#hidden-mobile-left-nav-header h4 {
+  font-size: 19px;
+  font-weight: 900;
+  margin: 0px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 5%;
+}
+
+#hidden-mobile-left-nav-header button {
+  position: absolute;
+  right: 0;
+  top:0;
+  color: #1DA1F2;
+  background-color: white;
+  border: 1px solid transparent;
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-right: 4%;
+}
+
+#hidden-mobile-left-nav-header button:hover {
+  cursor: pointer;
+}
+
+#hidden-mobile-nav-links {
+}
+
+#hidden-mobile-nav-links a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  vertical-align: middle;
+  padding: 12px 15px;
+}
+
+#hidden-mobile-nav-links a:hover {
+  background-color: #F7F9FA;
+  transition: 0.2s;
+}
+
+#hidden-mobile-nav-links a i {
+  color: grey;
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+#mobile-logout-btn {
+  border-top: 1px solid #C4CFD6;
+}
+
+
+#mobile-bottom-navigation {
+  border-top: 1px solid lightgrey;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  padding-left: 10px;
+  display: none;
+  background-color: white;
+  z-index: 99;
+}
+
+#mobile-bottom-col {
+  width: 23%;
+  display: inline-block;
+  text-align: center;
+  padding-top: 10px;
+}
+
+#mobile-bottom-col a {
+  color: grey;
+  text-decoration: none;
+  font-size: 25px;
+  padding-top: 7px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 50%;
+}
+
+#mobile-bottom-col a:hover {
+  transition: 0.2s;
+  background-color: #E8F6FD;
+  color: #1DA1F2;
+}
+
+#mobile-bottom-nav-tweet-panel-open-btn {
+  color: white;
+  background-color: #1DA1F2;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 60px;
+  font-size: 35px;
+  padding-top: 14px;
+  padding-left: 14px;
+  padding-right: 12px;
+  padding-bottom: 5px;
+  border-radius: 50%;
+  margin-right: 4%;
+  display: none;
+}
+
+#mobile-bottom-nav-tweet-panel-open-btn:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #1991DA;
+}
+
+#hidden-mobile-tweet-panel {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: white;
+  z-index: 9999 !important;
+  display: none;
+}
+
+#hidden-mobile-tweet-panel-header {
+
+}
+
+#hidden-mobile-tweet-panel-horizontal-line {
+  border-bottom: 1px solid #C4CFD6;
+}
+
+#hidden-mobile-tweet-panel-header button {
+  color: #1DA1F2;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 23px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5%;
+}
+
+#hidden-mobile-tweet-panel-header button:hover {
+  cursor: pointer;
+}
+
+#hidden-mobile-tweet-panel-header form {
+
+}
+
+#hidden-mobile-tweet-submit-btn {
+  position: absolute;
+  top:0;
+  right:0;
+  background-color: #1DA1F2;
+  border: 1px solid #1DA1F2;
+  color: white;
+  font-size: 15px;
+  padding: 5px 15px;
+  border-radius: 25px;
+  margin-right: 5%;
+  margin-top: 10px;
+  font-weight: 800;
+}
+
+#hidden-mobile-tweet-submit-btn:hover {
+  transition: 0.2s;
+  background-color: #1991DA;
+  cursor: pointer;
+}
+
+#hidden-mobile-tweet-panel-profile-photo {
+  display: inline-block;
+  vertical-align: top;
+  height: 35px;
+  width: 35px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  margin-left: 5%;
+  margin-top: 10px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#hidden-mobile-tweet-panel-header form textarea {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 2%;
+  margin-right: 5%;
+  width: 70%;
+  height: 150px;
+  border: 0px;
+  border-bottom: 1px solid #E5E8E8;
+}
+
+#hidden-mobile-tweet-panel-header form textarea:focus {
+  outline: none;
+}
+
+#hidden-tweet-panel-img-input {
+  display: none;
+}
+
+#hidden-mobile-tweet-panel-header form label {
+  margin-right: 10%;
+  font-size: 30px;
+  color: #1DA1F2;
+  float: right;
+  margin-top: 8px;
+}
+
+
+/* Mobile Small  --------------------------------------------------------- */
+@media screen and (min-width: 0px) and (max-width: 320px) {
+  #left-navigation {
+    display: none;
+  }
+  /* ----------------- main content container ----------------- */
+  #content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 50px;
+  }
+
+  #half-base-content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 50px;
+  }
+
+  /* ----------------- right navigation ----------------- */
+  #right-navigation {
+    display: none;
+  }
+
+  /* ------ mobile ---- */
+  #temporary-top-mobile-nav {
+    display: block;
+  }
+
+  #mobile-bottom-navigation {
+    display: block;
+  }
+
+  #mobile-bottom-nav-tweet-panel-open-btn {
+    display: block;
+  }
+
+
+}
+
+
+/* Mobile Medium  --------------------------------------------------------- */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+  #left-navigation {
+    display: none;
+  }
+  /* ----------------- main content container ----------------- */
+  #content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 50px;
+  }
+
+  #half-base-content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 50px;
+  }
+
+  /* ----------------- right navigation ----------------- */
+  #right-navigation {
+    display: none;
+  }
+
+  /* ------ mobile ---- */
+  #temporary-top-mobile-nav {
+    display: block;
+  }
+
+  #mobile-bottom-navigation {
+    display: block;
+  }
+
+  #mobile-bottom-nav-tweet-panel-open-btn {
+    display: block;
+  }
+
+}
+
+
+/* Mobile Large - --------------------------------------------------------- */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  #left-navigation {
+    display: none;
+  }
+  /* ----------------- main content container ----------------- */
+  #content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 50px;
+  }
+  #half-base-content-container {
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 50px;
+  }
+
+  /* ----------------- right navigation ----------------- */
+  #right-navigation {
+    display: none;
+  }
+
+  /* ------ mobile ---- */
+  #temporary-top-mobile-nav {
+    display: block;
+  }
+
+  #mobile-bottom-navigation {
+    display: block;
+  }
+
+  #mobile-bottom-nav-tweet-panel-open-btn {
+    display: block;
+  }
+
+
+}
+
+
+/* Tablet - --------------------------------------------------------------- */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+
+  /* ----------------- main content container ----------------- */
+  #content-container {
+    margin-left: 14%;
+    margin-right: 10%;
+  }
+
+  #half-base-content-container {
+    margin-left: 14%;
+    margin-right: 6%;
+  }
+
+  /* ----------------- right navigation ----------------- */
+  #right-navigation {
+    display: none;
+  }
+
+}
+
+
+/* Laptop ------------------------------------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  /* nothing for now */
+}
+
+
+/* Laptop Large -------------------------------------------------------------*/
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  /* nothing for now */
+}
+
+
+/* 4K Large Desktop ------------------------------------------------------- */
+@media screen and (min-width: 1441px) {
+
+}
+
+.flake-image {
+  width: 93%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #E5E8E8;
+  height: 280px;
+  border-radius: 15px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.flake-label {
+  font-size: 24px;
+  color: #1DA1F2;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  border-radius: 50%;
+}
+
+.flake-clickable:hover {
+  cursor: pointer;
+}
+
+.flake-label-hover:hover {
+  transition: 0.2s;
+  background-color: #E8F6FD;
+}
+
+.flake-btn {
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+  color: #1DA1F2;
+  border: 1px solid #1DA1F2;
+  text-decoration: none;
+  padding: 7px 15px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.flake-btn:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: #E8F6FD;
+}

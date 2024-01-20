@@ -1,0 +1,41 @@
+@startuml
+package Frontend {
+  [Website]
+  [Mobile Application]
+  [Other Clients]
+}
+
+note left of [Website] : We can implement different frontends...
+
+User <--> [Website]
+User <--> [Mobile Application] : interact
+User <--> [Other Clients]
+
+cloud Backend {
+  [API Controller] <-l-> [Service Layer]
+  [Service Layer] <-l-> [Data Access Layer]
+  [Data Access Layer]
+}
+
+note right of [API Controller] : ...and reuse the same backend.
+
+[Website] <--> [API Controller]
+[Mobile Application] <--> [API Controller] : request
+[Other Clients] <--> [API Controller]
+
+package Database {
+  database SQLite
+  database MySQL
+  database PostgreSQL
+}
+
+note right of Database
+    We can substitute different databases easily,
+    thanks to the ORM abstraction provided by Data Access Layer
+end note
+
+[Data Access Layer] <--> SQLite
+[Data Access Layer] <--> MySQL : access
+[Data Access Layer] <--> PostgreSQL
+
+@enduml

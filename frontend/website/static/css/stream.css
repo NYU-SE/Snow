@@ -1,0 +1,129 @@
+.flake-cell-right-part-bottom-links {
+  border: 1px solid transparent;
+}
+
+.flake-cell-button-container {
+  display: inline-block;
+  width: 28%;
+}
+
+.flake-cell-button {
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: 16px;
+  color: grey;
+  padding: 5px 5px;
+  padding-left: 9px !important;
+}
+
+.flake-cell-button:hover {
+  transition: 0.1s;
+  color: #1DA1F2;
+  cursor: pointer;
+  background-color: #E8F6FD;
+  border-radius: 25px;
+
+}
+
+.flake-cell-button-container p {
+  display: inline-block;
+  margin-top: 10px;
+  color: grey;
+  font-size: 14px;
+  margin-left: 3px;
+}
+
+
+.flake-cell-container {
+
+}
+
+.flake-cell {
+  border-bottom: 1px solid #EBEEF0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.flake-cell:hover {
+  background-color: #F7F7F7;
+  transition: 0.2s;
+}
+
+.flake-cell-left-part {
+  width: 15%;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+
+.flake-cell-left-part-profile-photo {
+  height: 45px;
+  width: 45px;
+  background-color: lightgrey;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 auto;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.flake-cell-right-part {
+  width: 82%;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.flake-cell-right-part p {
+  margin: 0px;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.flake-cell-header {
+  margin-bottom: 5px !important;
+}
+
+.flake-cell-header a {
+  color: black;
+  text-decoration: none;
+}
+
+.flake-cell-header a:hover {
+  text-decoration: underline;
+}
+
+.flake-cell-header {
+  color: grey;
+}
+
+.flake-cell-right-part-bottom-links {
+  border: 1px solid transparent;
+}
+
+
+#pagination-container {
+  margin-top: 30px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+#pagination-container a {
+  text-decoration: none;
+  color: #1DA1F2;
+  background-color: white;
+  border: 1px solid #1DA1F2;
+  font-size: 22px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#pagination-container a:hover {
+  background-color: #1DA1F2;
+  color: white;
+  transition: 0.2s;
+}
