@@ -1,0 +1,106 @@
+{% extends 'main_base.html' %}
+{% load static %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile/profile.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with page="0" %}
+
+<!-- header -->
+<div id="profile-header">
+  <h3>{{ other_user_profile.full_name }}</h3>
+  <p>{{tweet_amount}} Tweets</p>
+</div>
+
+<!-- banner and profile photo -->
+<div id="profile-banner-container">
+  {% if other_user_profile.banner_photo %}
+    <div id="profile-banner" style="background-image:url({{ other_user_profile.banner_photo.url }})"></div>
+  {% else %}
+    <div id="profile-banner"></div>
+  {% endif %}
+
+  <div id="profile-banner-bottom-part">
+      {% if other_user_profile.profile_photo %}
+        <div id="profile-photo" style="background-image:url({{ other_user_profile.profile_photo.url }})"></div>
+      {% else %}
+        <div id="profile-photo"></div>
+      {% endif %}
+
+      <div id="clear"></div>
+      <form method="POST" action="{% url 'other_user_profile' other_user_profile.user.username %}">
+          {% csrf_token %}
+          {% if already_follower == False %}
+            <input type="submit" id="follow-submit-btn" value="Follow" name="other_user_profile_follow_submit_btn" />
+          {% else %}
+            <input type="submit" id="follow-submit-btn" value="Following" name="other_user_profile_follow_submit_btn" />
+          {% endif %}
+      </form>
+      <div id="clear"></div>
+  </div>
+
+</div>
+
+<!-- bio -->
+<div id="profile-bio">
+  <h3>{{ other_user_profile.full_name }}</h3>
+  <p id="bio-username">@{{ other_user_profile.user.username }}</p>
+
+  <p id="bio-bio">{{ other_user_profile.bio }}</p>
+
+  <p id="bio-date">{{ other_user_profile.creation_date }}</p>
+
+  <p id="bio-followers"><b>{{following_amount}}</b>Following <span id="right-space"></span> <b>{{follower_amount}}</b>Followers</p>
+</div>
+
+
+<!-- navigation -->
+<div id="profile-nav">
+  <p><a href="{% url 'other_user_profile' other_user_profile.user.username %}">Tweets</a></p>
+</div>
+
+
+<!-- tweets -->
+
+{% for tweet in all_tweets %}
+  <div id="tweet-cell">
+    <div id="tweet-cell-left-part">
+      {% if tweet.user.profile_photo %}
+        <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{{ tweet.user.profile_photo.url }}')"></div>
+      {% else %}
+        <div id="tweet-cell-left-part-profile-photo"></div>
+      {% endif %}
+    </div>
+
+    <div id="tweet-cell-right-part">
+      <p id="tweet-cell-header"><b><a href="{% url 'other_user_profile' tweet.user.user.username %}">{{ tweet.user.full_name }}</a></b> @{{ tweet.user.user.username }} · {{ tweet.creation_date }}</p>
+      <p>{{ tweet.content|linebreaks }}</p>
+
+      {% if tweet.image %}
+        <div id="tweet-image" style="background-image:url('{{ tweet.image.url }}')"></div>
+      {% endif %}
+
+      <div id="tweet-cell-right-part-bottom-links">
+        <form id="tweet-cell-comment-form" method="POST" action="{% url 'other_user_profile' other_user_profile.user.username %}" >
+          {% csrf_token %}
+          <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+          <input type="submit" value="&#128262;" name="other_profile_tweet_comment_form_submit_btn"/>
+          <p>{{ tweet.tweet_comment_amount }}</p>
+        </form>
+
+        <form id="tweet-cell-like-form" method="POST">
+          {% csrf_token %}
+          <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+          <input type="submit" value="&#128153;" name="other_profile_tweet_like_form_submit_btn" />
+          <p>{{ tweet.tweet_like_amount }}</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+{% endfor %}
+
+{% endwith %}
+{% endblock %}

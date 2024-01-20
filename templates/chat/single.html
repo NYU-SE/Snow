@@ -1,0 +1,144 @@
+{% extends 'half_base.html' %}
+{% load static %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/chat/landing.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/chat/single.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with page="0" %}
+
+<div id="chat-container">
+
+  <!-- left navigation -->
+  <div id="chat-left-nav">
+    <div id="chat-left-header">
+      <h3>Messages</h3>
+      <button id="hidden-panel-open-btn"><i class="ri-mail-add-line"></i></button>
+    </div>
+
+    {% for following in current_followings %}
+      <a href="{% url 'chat_single' following.following.user.username %}" id="message-link-cell-a">
+        <div id="message-link-cell">
+          <div id="message-link-cell-left-part">
+            {% if following.following.profile_photo %}
+              <div id="message-link-cell-profile-photo" style="background-image:url({{ following.following.profile_photo.url }})"></div>
+            {% else %}
+              <div id="message-link-cell-profile-photo" style=""></div>
+            {% endif %}
+
+          </div>
+          <div id="message-link-cell-right-part">
+            <p id="message-link-cell-header"><b>{{ following.following.full_name }}</b> @{{ following.following.user.username }}</p>
+            <p id="message-link-cell-date">{{ following.following.creation_date }}</p>
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+
+  </div>
+
+  <div id="hidden-chat-panel-bg"></div>
+  <div id="hidden-chat-panel">
+    <div id="hidden-chat-panel-header">
+      <button id="hidden-panel-close-btn"><span class="fa fa-close"></span></button>
+      <h3>New message</h3>
+    </div>
+
+    {% for following in current_followings %}
+      <a id="new-chat-link-a" href="{% url 'chat_single' following.following.user.username %}">
+        <div id="new-chat-link">
+            <div id="new-chat-link-left-part">
+              {% if following.following.profile_photo %}
+                <div id="new-chat-link-profile-photo" style="background-image:url({{ following.following.profile_photo.url }})"></div>
+              {% else %}
+                  <div id="new-chat-link-profile-photo"></div>
+              {% endif %}
+
+            </div>
+            <div id="new-chat-link-right-part">
+              <h4>{{ following.following.full_name }}</h4>
+              <p>@{{ following.following.user.username }}</p>
+            </div>
+        </div>
+      </a>
+    {% endfor %}
+
+  </div>
+
+
+  <!-- right content -->
+  <div id="chat-right-content">
+
+
+    <div id="chat-right-top-box">
+      <div id="chat-right-top-box-left-part">
+        {% if current_reciever.profile_photo %}
+          <div id="chat-top-box-profile-photo" style="background-image:url({{ current_reciever.profile_photo.url }})"></div>
+        {% else %}
+          <div id="chat-top-box-profile-photo"></div>
+        {% endif %}
+      </div>
+      <div id="chat-right-top-box-right-part">
+        <h3><a href="{% url 'other_user_profile' current_reciever.user.username %}">{{ current_reciever.full_name }}</a></h3>
+        <p>@{{ current_reciever.user.username }}</p>
+      </div>
+    </div>
+
+    <div id="chat-right-middle-box">
+      <div id="chat-self-box">
+        lorem ipsum dolor sit amet miru
+      </div>
+
+      <div id="clear-float"></div>
+
+      <div id="chat-other-box">
+        lorem ipsum dolor sit amet miru  lorem ipsum dolor sit amet miru
+      </div>
+
+      <div id="clear-float"></div>
+    </div>
+
+    <div id="chat-right-bottom-box">
+      <form action="{% url 'chat_single' current_reciever.user.username %}" method="POST">
+          {% csrf_token %}
+          <input type="text" name="chat_content" placeholder="Start a new message" id="chat-content" />
+          <input type="submit" name="chat_send_submit_btn" value="send" id="chat-send-submit-btn" />
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  let hidden_new_message_panel = document.getElementById("hidden-chat-panel");
+  let hidden_new_message_panel_bg = document.getElementById("hidden-chat-panel-bg");
+  let hidden_new_message_panel_open_btn = document.getElementById("hidden-panel-open-btn");
+  let hidden_new_message_panel_close_btn = document.getElementById("hidden-panel-close-btn");
+  let no_message_open_btn = document.getElementById("no-message-text-open-btn");
+
+  hidden_new_message_panel_open_btn.onclick = function() {
+    hidden_new_message_panel.style.display = "block";
+    hidden_new_message_panel_bg.style.display = "block";
+  }
+
+  hidden_new_message_panel_close_btn.onclick = function() {
+    hidden_new_message_panel.style.display = "none";
+    hidden_new_message_panel_bg.style.display = "none";
+  }
+
+  no_message_open_btn.onclick = function() {
+    hidden_new_message_panel.style.display = "block";
+    hidden_new_message_panel_bg.style.display = "block";
+  }
+
+
+</script>
+
+
+{% endwith %}
+{% endblock %}

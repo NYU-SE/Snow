@@ -1,0 +1,98 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home/home.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with page="0" %}
+
+<!-- banner -->
+<div id="home-banner">
+    <h1>Home</h1>
+</div>
+
+<!-- tweet form -->
+<div id="home-tweet-form">
+  <div id="home-tweet-form-left-part">
+    {% if current_basic_user_profile.profile_photo %}
+      <div id="home-tweet-form-left-part-profile-photo" style="background-image:url('{{ current_basic_user_profile.profile_photo.url }}')"></div>
+    {% else %}
+      <div id="home-tweet-form-left-part-profile-photo"></div>
+    {% endif %}
+  </div>
+  <div id="home-tweet-form-right-part">
+    <form action="{% url 'home' page %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <textarea placeholder="What's happening?" name="tweet_content"></textarea>
+        <label for="home-tweet-file-input"><i class="ri-image-add-line"></i></label>
+        <input id="home-tweet-file-input" type="file" name="tweet_image" />
+        <input id="home-tweet-submit-btn" type="submit" value="Tweet" name="home_page_tweet_form_submit_btn" />
+    </form>
+  </div>
+</div>
+
+<div id="small-diviser"></div>
+
+
+<!-- all tweets listing -->
+<div id="tweet-cell-container">
+
+  {% for tweet in tweet_feed %}
+
+    <div id="tweet-cell">
+
+      <div id="tweet-cell-left-part">
+        {% if tweet.user.profile_photo %}
+          <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{{ tweet.user.profile_photo.url }}')"></div>
+        {% else %}
+          <div id="tweet-cell-left-part-profile-photo"></div>
+        {% endif %}
+      </div>
+      <div id="tweet-cell-right-part">
+        <p id="tweet-cell-header"><b><a href="{% url 'other_user_profile' tweet.user.user.username %}">{{ tweet.user.full_name }}</a></b> @{{ tweet.user.user.username }} · {{ tweet.creation_date }}</p>
+        <p>{{ tweet.content|linebreaks }}</p>
+
+        {% if tweet.image %}
+          <div id="tweet-image" style="background-image:url('{{ tweet.image.url }}')"></div>
+        {% endif %}
+
+        <div id="tweet-cell-right-part-bottom-links">
+          <form id="tweet-cell-comment-form" action="{% url 'home' page %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+            <input type="submit" value="&#128262;" name="tweet_cell_comment_submit_btn"/>
+            <p>{{ tweet.tweet_comment_amount }}</p>
+          </form>
+
+          <form id="tweet-cell-like-form" action="{% url 'home' page %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+            <input type="submit" value="&#128153;" name="tweet_cell_like_submit_btn" />
+            <p>{{ tweet.tweet_like_amount }}</p>
+          </form>
+        </div>
+      </div><!-- /right-part -->
+    </div><!--/cell -->
+
+  {% endfor %}
+
+
+  <!-- pagination -->
+  <div id="pagination-container">
+    {% if current_page <= 0 %}
+      <a href=""><span class="fa fa-caret-left"></span></a>
+      <a href="{% url 'home' next_page %}"><span class="fa fa-caret-right"></span></a>
+    {% elif current_page > 0%}
+      <a href="{% url 'home' previous_page %}"><span class="fa fa-caret-left"></span></a>
+      <a href="{% url 'home' next_page %}"><span class="fa fa-caret-right"></span></a>
+    {% endif %}
+
+  </div>
+
+</div><!--/container -->
+
+{% endwith %}
+{% endblock %}

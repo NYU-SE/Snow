@@ -1,0 +1,77 @@
+{% extends 'main_base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block css_link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/hashtag/topic_explore.css' %}" />
+{% endblock %}
+
+{% block content %}
+{% with page="0" %}
+
+<!-- header -->
+<div id="topic-header">
+    <h3>Topic</h3>
+</div>
+
+<!-- topic name banner -->
+<div id="topic-name-banner">
+  <p><i class="ri-message-2-fill"></i></p>
+  <h1>{{ current_topic.name|title }}</h1>
+</div>
+
+{% for tweet in tweet_feed %}
+  <!-- tweets -->
+  <div id="tweet-cell">
+    <div id="tweet-cell-left-part">
+      {% if tweet.user.profile_photo %}
+        <div id="tweet-cell-left-part-profile-photo" style="background-image:url('{{ tweet.user.profile_photo.url }}')"></div>
+      {% else %}
+        <div id="tweet-cell-left-part-profile-photo"></div>
+      {% endif %}
+    </div>
+
+    <div id="tweet-cell-right-part">
+      <p id="tweet-cell-header"><b><a href="{% url 'other_user_profile' tweet.user.user.username %}">{{ tweet.user.full_name }}</a></b> @{{ tweet.user.user.username }} · {{ tweet.creation_date }}</p>
+      <p>{{ tweet.content|linebreaks }}</p>
+
+      {% if tweet.image %}
+        <div id="tweet-image" style="background-image:url('{{ tweet.image.url }}')"></div>
+      {% endif %}
+
+      <div id="tweet-cell-right-part-bottom-links">
+        <form id="tweet-cell-comment-form" method="POST" action="{% url 'topic_explore' current_topic.name current_page %}">
+          {% csrf_token %}
+          <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+          <input type="submit" value="&#128262;" name="single_topic_explore_tweet_cell_comment_submit_btn"/>
+          <p>{{ tweet.tweet_comment_amount }}</p>
+        </form>
+
+        <form id="tweet-cell-like-form" method="POST" action="{% url 'topic_explore' current_topic.name current_page %}">
+          {% csrf_token %}
+          <input type="hidden" value="{{ tweet.id }}" name="hidden_tweet_id" />
+          <input type="submit" value="&#128153;" name="single_topic_explore_tweet_cell_like_submit_btn" />
+          <p>{{ tweet.tweet_like_amount }}</p>
+        </form>
+      </div>
+
+    </div>
+  </div><!--/cell-->
+{% endfor %}
+
+
+<!-- pagination -->
+<div id="pagination-container">
+  {% if current_page <= 0 %}
+    <a href=""><span class="fa fa-caret-left"></span></a>
+    <a href="{% url 'topic_explore' current_topic.name next_page %}"><span class="fa fa-caret-right"></span></a>
+  {% elif current_page > 0%}
+    <a href="{% url 'topic_explore' current_topic.name previous_page %}"><span class="fa fa-caret-left"></span></a>
+    <a href="{% url 'topic_explore' current_topic.name next_page %}"><span class="fa fa-caret-right"></span></a>
+  {% endif %}
+
+</div>
+
+
+{% endwith %}
+{% endblock %}
