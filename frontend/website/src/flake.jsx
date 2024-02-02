@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLoaderData, useNavigate, useOutletContext } from "react-router-dom";
 import Stream from "./component/stream.jsx";
 import { FloatingPostFrame } from "./component/post.jsx";
-import { getFlake, getComments } from "./lib/flake.js";
+import { like, getFlake, getComments } from "./lib/flake.js";
 import { formatDate } from "./lib/date.js";
 import "../static/css/home/single_tweet.css";
 
@@ -19,7 +19,7 @@ export async function loader({ params }) {
 
 export default function Flake() {
   const { user } = useOutletContext();
-  const flake = useLoaderData();
+  const [flake, setFlake] = useState(useLoaderData());
   const navigate = useNavigate();
 
   const [showReplyPanel, setShowReplyPanel] = useState(false);
@@ -83,9 +83,13 @@ export default function Flake() {
     </div>
     
     <div id="single-twee-operations">
-      <form method="POST">
-        <input type="submit" value="&#128153;" name="single_tweet_like_submit_btn" />
-      </form>
+      <button onClick={() => {
+        like(flake).then((newFlake) => {
+          if (newFlake) {
+            setFlake(newFlake);
+          }
+        });
+      }}>&#128153;</button>
     
       <button id="hidden-panel-open-btn"
               onClick={()=>{ setShowReplyPanel(!showReplyPanel); }}>

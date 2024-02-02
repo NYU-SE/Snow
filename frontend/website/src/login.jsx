@@ -1,6 +1,7 @@
 import { Form, redirect } from "react-router-dom";
 import { login } from './lib/user.js';
 import "../static/css/auth/login.css";
+import logo from "../static/branding/logo.png";
 
 export async function action({ request }) {
   const formData = await request.formData();
@@ -18,7 +19,7 @@ export async function action({ request }) {
 export default function Login(){
   return (
     <div id="login-container">
-        <img src="/static/branding/logo.png" alt="logo" />
+        <img src={logo} alt="logo" />
         <h1>Log in to Snow</h1>
 
         <Form method="POST">
