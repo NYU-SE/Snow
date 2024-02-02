@@ -6,6 +6,7 @@ class SnowEncoder(DjangoJSONEncoder):
     def default(self, obj):
         if isinstance(obj, User):
             return {
+                'type': 'User',
                 'id': obj.id,
                 'creation_date': obj.creation_date,
                 'email': obj.auth.email,
@@ -21,6 +22,7 @@ class SnowEncoder(DjangoJSONEncoder):
         
         if isinstance(obj, Flake):
             return {
+                'type': 'Flake',
                 'id': obj.id,
                 'creation_date': obj.creation_date,
                 'author': obj.author,
@@ -33,6 +35,7 @@ class SnowEncoder(DjangoJSONEncoder):
 
         if isinstance(obj, Image):
             return {
+                'type': 'Image',
                 'id': obj.id,
                 'creation_date': obj.creation_date,
                 'url': f"{settings.SNOW_HOSTNAME}/{obj.file.url}"
