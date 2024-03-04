@@ -32,12 +32,18 @@
         ${python}/bin/python ${self}/manage.py migrate
         ${python}/bin/python ${self}/manage.py runserver "${apiAddr}"
       '';
+      backend-test = pkgs.writeShellScript "snow-test" ''
+        export SNOW_API_HOST="${apiHost}"
+        export SNOW_API_WORKDIR=$PWD
+        ${python}/bin/python ${self}/manage.py test "$@"
+      '';
       website = pkgs.writeShellScript "snow-website" ''
         ${python}/bin/python -m http.server --directory ${self.packages.${sys}.website} -b 127.0.0.1 5173
       '';
     in {
       api = mkApp api;
       website = mkApp website;
+      backend-test = mkApp backend-test;
     };
   };
 }
